@@ -17,6 +17,7 @@ const Resume = () => {
       <h1 className="text-5xl pb-20">Resume</h1>
       <iframe
         id="sam"
+        title="resume"
         style={{ border: "1px solid #666CCC", display: "block" }}
         src={resume}
         frameborder="1"
