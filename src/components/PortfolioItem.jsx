@@ -8,7 +8,7 @@ const PortfolioItem = ({ title, imgUrl, stack, link }) => {
           <img
             src={imgUrl}
             alt="portfolio"
-            className=" mx-2 my-2 justify-center w-[36rem] h-[17rem] object-fit cursor-pointer"
+            className=" mx-2 my-2 justify-center  object-fit cursor-pointer"
           />
         </a>
       </div>
