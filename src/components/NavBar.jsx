@@ -17,7 +17,11 @@ const NavBar = () => {
       {/* menu */}
       <ul className="hidden md:flex">
         <li>
-          <a href="https://medium.com/@mr.samito" target="_blank">
+          <a
+            href="https://medium.com/@mr.samito"
+            target="_blank"
+            rel="noreferrer"
+          >
             Blog
           </a>
         </li>
