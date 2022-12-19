@@ -17,7 +17,9 @@ const NavBar = () => {
       {/* menu */}
       <ul className="hidden md:flex">
         <li>
-          <a href="https://medium.com/@mr.samito">Blog</a>
+          <a href="https://medium.com/@mr.samito" target="_blank">
+            Blog
+          </a>
         </li>
         <li>
           <Link to="resume" smooth={true} duration={500}>
@@ -66,7 +68,6 @@ const NavBar = () => {
           </Link>
         </li>
       </ul>
-
     </div>
   );
 };
