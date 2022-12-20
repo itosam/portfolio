@@ -4,7 +4,7 @@ const PortfolioItem = ({ title, imgUrl, stack, link }) => {
   return (
     <div>
       <div className="overflow-hidden ">
-        <a href={link}>
+        <a href={link} target="_blank" rel="noreferrer">
           <img
             src={imgUrl}
             alt="portfolio"
