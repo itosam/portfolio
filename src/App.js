@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
+
   return (
     <div className="App bg-#F0F6F6">
       <NavBar />
