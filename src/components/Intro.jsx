@@ -6,7 +6,7 @@ const Intro = () => {
     <div className="flex justify-left flex-col text-left pt-[7rem] pb-[7rem] ">
       <p className=" intro flex-wrap text-[3.5em] leading-snug xl:max-w-[80%] mt-6 mb-6 font-DMSans">
         <motion.img
-          whileHover={{ scale: 2 }}
+          whileHover={{ scale: 3 }}
           src="./assets/face.png"
           alt="face"
           className="float-left w-[.75em] mr-[.5em]"
