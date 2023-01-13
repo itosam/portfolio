@@ -12,7 +12,7 @@ const Intro = () => {
           className="float-left w-[.75em] mr-[.5em]"
         />{" "}
         Hi, I’m Sam! I am a Software Engineer with experience in full stack
-        development using JavaScript, React, Ruby/Ruby on Rails, SQL, SQLite,
+        development using JavaScript, Java, React, Ruby/Ruby on Rails, SQL, SQLite,
         PostgreSQL.{" "}
       </p>
     </div>
