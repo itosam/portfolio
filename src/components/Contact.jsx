@@ -26,7 +26,7 @@ const Contact = () => {
           <br />
           <textarea
             name="message"
-            placeholder="Interested in working with me, or want to know more? Leave a Message!"
+            placeholder="Interested in working together, or want to know more? Leave a Message!"
             rows="5"
             class="appearance-none bg-transparent border-b border-[#CCCCCC] py-2 w-full text-[grey] mr-3 py-1 px-2 leading-tight focus:outline-none"
           />
