@@ -11,7 +11,7 @@ const Contact = () => {
           <input
             class="appearance-none bg-transparent border-b border-[#CCCCCC] py-2 w-full text-[grey] mr-3 py-1 px-2 leading-tight focus:outline-none"
             type="text"
-            placeholder="Enter Name"
+            placeholder="Name"
             aria-label="Full name"
           />
           <br />
