@@ -10,3 +10,7 @@
     @apply cursor-pointer;
   }
 }
+
+iframe {
+  width:98% ;
+}
