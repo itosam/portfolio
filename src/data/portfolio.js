@@ -16,6 +16,6 @@ export default [
     title: "Movie App",
     imgUrl: "./assets/movieappdemo.gif",
     stack: ["React", "Bootstrap", "CSS"],
-    link: "http://github.com/itosam/phase-2-project",
-  }
+    link: "https://itosam.github.io/movieapp/",
+  },
 ];
