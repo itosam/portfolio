@@ -27,7 +27,7 @@
     display: grid;
     padding-right: 5%;
 }
-@media only screen  and (min-width : 1025px) {
+@media only screen  and (min-width : 768px) {
 
   .mobile-pdf {
       display: none;
@@ -35,5 +35,6 @@
 
   .desktop-pdf {
       display: block;
+      width: 600;
   }
 }
