@@ -52,8 +52,8 @@ const Resume = () => {
           <iframe
             class="mobile-pdf"
             scrolling="auto"
-            src="https://docs.google.com/gview?url=https://docs.google.com/document/d/1qHJ9WRtQq_aU0qOjNMcg9VHSosS9N6llGj976pq8jEk/edit&embedded=true"
-            width="300"
+            src="https://docs.google.com/document/d/e/2PACX-1vRzo2xOYXZAZdqn5A-LXeoMyBJTOu1onDhFBbLJsyeV9Rgqa3yqBl4ZOLAjRa9ckQzy4JEdHEDaFzpa/pub?embedded=true"
+            width="480"
             height="600"
             type="application/pdf"
             title="Title"
