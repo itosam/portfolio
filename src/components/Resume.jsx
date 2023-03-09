@@ -6,14 +6,26 @@
 //   StyleSheet,
 //   PDFViewer,
 // } from '@react-18-pdf/renderer';
+import {useState, useEffect} from 'react';
 import resume from "../pdf/samitoresume.pdf";
-import Load from "./Load";
+import Welcome from "./Welcome";
 
 const Resume = () => {
 
+   const [loading, setLoading] = useState(false);
+   useEffect(() => {
+     setLoading(true);
+     setTimeout(() => {
+       setLoading(false);
+     }, 2500);
+   }, []);
 
   return (
-    <div>
+    <div className="flex pl-[14rem] pr-[10rem] flex-col pt-[7rem] pb-[7rem] flex justify-between items-center">
+      {
+        loading ?
+        <Welcome/>
+        :
     <div className="flex pl-[14rem] pr-[10rem] flex-col pt-[7rem] pb-[7rem] flex justify-between items-center">
       <h1 className="text-5xl pb-20">Resume</h1>
       <div class="outer-pdf">
@@ -64,7 +76,7 @@ const Resume = () => {
           </iframe>
         </div>
       </div>
-    </div>
+    </div>}
     </div>
   );
 };

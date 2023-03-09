@@ -11,13 +11,12 @@ const Welcome= () => {
       }}
     >
       <motion.img
-        style={{ cursor: "none" }}
+        style={{ cursor: "none"}}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 0.5 }}
         transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 1 }}
-        
         src="./assets/icon.png"
         alt="icon"
       />
