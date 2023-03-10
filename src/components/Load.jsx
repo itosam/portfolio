@@ -3,36 +3,32 @@ import { motion } from "framer-motion";
 const Load = () => {
   return (
     <motion.div
-      style={{
+      style={{cursor: "none",
         zIndex: 1,
-        position: "absolute",
+        position: "grid",
         left: "50%",
         top: "50%",
-        transform: "translate(-50%, -50%)",
+        transform: "translate(-50%, -150%)",
       }}
-      initial={{rotate:-45}}
-      animate={{rotate:45}}
-      transition={{duration : 5}}
+      transition={{duration : 3}}
+      initial={{ scale: 0.35, rotate:-45 }}
+      animate={{ scale: 0.25, rotate:360 }}
+        whileTap={{ scale: 1 }}
     >
       <motion.img
-        style={{ cursor: "none" }}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 0.5 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 1 }}
+        
+       
         src="./assets/icon.png"
         alt="icon"
       />
-      <motion.p
+      <h1
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 0.5 }}
         transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 1 }}
+        style={{fontSize:"6rem",paddingLeft:"8rem"}}
       >
         loading...
-      </motion.p>
+      </h1>
     </motion.div>
   );
 };

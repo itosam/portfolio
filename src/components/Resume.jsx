@@ -8,7 +8,7 @@
 // } from '@react-18-pdf/renderer';
 import {useState, useEffect} from 'react';
 import resume from "../pdf/samitoresume.pdf";
-import Welcome from "./Welcome";
+import Load from "./Load";
 
 const Resume = () => {
 
@@ -17,14 +17,14 @@ const Resume = () => {
      setLoading(true);
      setTimeout(() => {
        setLoading(false);
-     }, 2500);
+     }, 1000);
    }, []);
 
   return (
     <div className="flex pl-[14rem] pr-[10rem] flex-col pt-[7rem] pb-[7rem] flex justify-between items-center">
       {
         loading ?
-        <Welcome/>
+        <Load/>
         :
     <div className="flex pl-[14rem] pr-[10rem] flex-col pt-[7rem] pb-[7rem] flex justify-between items-center">
       <h1 className="text-5xl pb-20">Resume</h1>
