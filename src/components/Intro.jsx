@@ -12,9 +12,9 @@ const Intro = () => {
           alt="face"
           className="float-left w-[.75em] mr-[.5em]"
         />{" "}
-        Hi, I’m Sam! I am a Software Engineer with experience in full stack
+        Hi, I’m Sam! Welcome to my portfolio. I am a Software Engineer with experience in full stack
         development using JavaScript, Java, React, Ruby/Ruby on Rails, SQL,
-        SQLite, PostgreSQL.{" "}
+        SQLite, PostgreSQL. Below are some of my projects for you to check out!{" "}
       </p>
     </div>
   );
