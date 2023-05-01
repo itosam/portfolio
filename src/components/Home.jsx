@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="Home font-DMSans ml-[10%] mr-[8%] l-ml-[0%] pt-10 pb-[25px]">
       <Intro />
-      <Portfolio />
+      <Portfolio id="portfolio" />
     </div>
   );
 }
