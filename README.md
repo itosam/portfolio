@@ -1,7 +1,7 @@
 # Personal Portfolio
 
 This is a repository for my personal portfolio website
-Hosted at www.mrsamito.com
+Hosted at <a>www.mrsamito.com</a>
 
 ## Built using
  -React.js
