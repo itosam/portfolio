@@ -20,7 +20,7 @@ export default [
   },
   {
     title: "weather finder",
-    imgUrl: "./assets/weatherfinder.gif",
+    imgUrl: "./assets/weatherfinder.png",
     stack: ["JavaScript", "Html", "CSS", "API Database"],
     link: "https://github.com/itosam/weatherfinder",
   },
