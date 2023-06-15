@@ -1,6 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default [
   {
+    title: "weather finder",
+    imgUrl: "./assets/weatherfinder.png",
+    stack: ["JavaScript", "Html", "CSS", "API Database"],
+    link: "https://github.com/itosam/weatherfinder",
+  },
+  {
     title: "Be@rbrick & Mortar",
     imgUrl: "./assets/be@rbrick&mortardemo.gif",
     stack: ["React", "Bootstrap", "Ruby on Rails", "PostgreSQL"],
@@ -18,10 +24,5 @@ export default [
     stack: ["React", "Bootstrap", "JSON Database"],
     link: "https://itosam.github.io/movieapp/",
   },
-  {
-    title: "weather finder",
-    imgUrl: "./assets/weatherfinder.png",
-    stack: ["JavaScript", "Html", "CSS", "API Database"],
-    link: "https://github.com/itosam/weatherfinder",
-  },
+  
 ];
