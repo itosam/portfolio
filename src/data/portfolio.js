@@ -13,9 +13,15 @@ export default [
     link: "https://github.com/itosam/phase-3-project",
   },
   {
-    title: "Movie App",
+    title: "Slate Movie App",
     imgUrl: "./assets/movieappdemo.gif",
-    stack: ["React", "Bootstrap", "CSS"],
+    stack: ["React", "Bootstrap", "JSON Database"],
     link: "https://itosam.github.io/movieapp/",
+  },
+  {
+    title: "weather finder",
+    imgUrl: "./assets/weatherfinder.gif",
+    stack: ["JavaScript", "Html", "CSS", "API Database"],
+    link: "https://github.com/itosam/weatherfinder",
   },
 ];
