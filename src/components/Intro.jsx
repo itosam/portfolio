@@ -1,68 +1,72 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const introText =
-  "Hi, I’m Sam! Welcome to my portfolio. I am a Web Product Manager and Web Content Specialist with a background in full stack development using JavaScript, React, Ruby/Ruby on Rails, SQL, HTML, and CSS. Take a look around to learn more about my work, background, and projects.";
-
-const MotionLink = motion(Link);
+  "Hi, I'm Sam! I'm an eCommerce and Web Product professional with experience in NYC wholesale fashion, web content, digital operations, and full stack development. See what I've been working on.";
 
 const AnimatedIntroText = ({ text }) => {
   const words = text.split(" ");
 
+  const handleProjectsClick = () => {
+    const projectsElement = document.getElementById("projects");
+    if (projectsElement) {
+      projectsElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-  <span aria-label={text} className="tracking-normal">
-    {words.map((word, wordIndex) => {
-      const wordContent = (
-        <>
-          {word.split("").map((letter, letterIndex) => (
-            <motion.span
-              key={`${word}-${letter}-${letterIndex}`}
-              aria-hidden="true"
-              className="inline-block tracking-normal"
-              whileHover={{ y: -12 }}
-              transition={{ type: "spring", stiffness: 500, damping: 14 }}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </>
-      );
-      const wordClassName = `inline-block whitespace-nowrap ${wordIndex < words.length - 1 ? "mr-[0.24em]" : ""}`;
-
-      if (word.toLowerCase().replace(/[^a-z]/g, "") === "projects") {
-        return (
-          <MotionLink
-            key={`${word}-${wordIndex}`}
-            to="/projects"
-            className={`${wordClassName} rounded-[0.08em] px-[0.08em] text-black outline-none focus-visible:ring-2 focus-visible:ring-black/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F0F6F6]`}
-            initial={{ backgroundSize: "0% 100%" }}
-            animate={{ backgroundSize: "100% 100%" }}
-            transition={{ delay: 0.9, duration: 0.75, ease: "easeOut" }}
-            style={{
-              backgroundImage: "linear-gradient(#FFE7A8, #FFE7A8)",
-              backgroundPosition: "left bottom",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            {wordContent}
-          </MotionLink>
+    <span aria-label={text} className="tracking-normal">
+      {words.map((word, wordIndex) => {
+        const wordContent = (
+          <>
+            {word.split("").map((letter, letterIndex) => (
+              <motion.span
+                key={`${word}-${letter}-${letterIndex}`}
+                aria-hidden="true"
+                className="inline-block tracking-normal"
+                whileHover={{ y: -12 }}
+                transition={{ type: "spring", stiffness: 500, damping: 14 }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </>
         );
-      }
+        const wordClassName = `inline-block whitespace-nowrap ${wordIndex < words.length - 1 ? "mr-[0.24em]" : ""}`;
 
-      return (
-        <span key={`${word}-${wordIndex}`} className={wordClassName}>
-          {wordContent}
-        </span>
-      );
-    })}
-  </span>
+        if (word.toLowerCase().replace(/[^a-z]/g, "") === "on") {
+          return (
+            <motion.button
+              key={`${word}-${wordIndex}`}
+              onClick={handleProjectsClick}
+              className={`${wordClassName} cursor-pointer appearance-none rounded-[0.08em] border-0 bg-transparent px-[0.08em] text-black outline-none focus-visible:ring-2 focus-visible:ring-black/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F0F6F6]`}
+              initial={{ backgroundSize: "0% 100%" }}
+              animate={{ backgroundSize: "100% 100%" }}
+              transition={{ delay: 0.9, duration: 0.75, ease: "easeOut" }}
+              style={{
+                backgroundImage: "linear-gradient(#FFE7A8, #FFE7A8)",
+                backgroundPosition: "left bottom",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              {wordContent}
+            </motion.button>
+          );
+        }
+
+        return (
+          <span key={`${word}-${wordIndex}`} className={wordClassName}>
+            {wordContent}
+          </span>
+        );
+      })}
+    </span>
   );
 };
 
 const Intro = () => {
   return (
-    <div className="flex justify-left flex-col text-left pt-[7rem] pb-[2rem] ">
-      <p className="intro flex-wrap text-[1.75rem] sm:text-[3.5rem] leading-snug tracking-normal mt-6 mb-6 font-DMSans">
+    <div className="flex min-h-[70svh] flex-col justify-center pb-0 pt-0 text-left sm:pt-4 md:min-h-0 md:justify-left md:pb-[2rem] md:pt-[4rem]">
+      <p className="intro mb-2 mt-2 flex-wrap font-DMSans text-[clamp(1.75rem,7vw,2.75rem)] leading-[1.1] tracking-normal md:mb-6 md:mt-6 md:text-[clamp(2.25rem,3.75vw,4rem)] md:leading-[1.12]">
         <motion.img
           style={{ cursor: "none" }}
           whileHover={{ scale: 3 }}
@@ -71,7 +75,7 @@ const Intro = () => {
           alt="Illustrated portrait of Sam Ito"
           className="float-left w-[.75em] mr-[.5em]"
         />{" "}
-        <AnimatedIntroText text={introText} />{" "}
+        <AnimatedIntroText text={introText} />
       </p>
     </div>
   );

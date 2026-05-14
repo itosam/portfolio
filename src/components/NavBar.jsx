@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa"
+import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { darkHighlightLinkClassName, highlightLinkClassName } from "../sharedClasses";
@@ -28,20 +28,19 @@ const NavBar = () => {
   const interactiveLinkClassName = isCreative ? darkHighlightLinkClassName : highlightLinkClassName;
 
   return (
-    <div className={`fixed z-50 ml-[10%] pt-10 pb-[25px] w-5/6 h-[40px] flex justify-between items-center p-0 border-b-2 font-DMSans ${isCreative ? 'bg-black text-white border-slate-600' : 'bg-[#F0F6F6] text-black border-[#CCCCCC]'}`}>
-      <div>
+    <div className={`fixed inset-x-0 top-0 z-50 box-content flex h-[40px] items-center justify-between px-[6%] pb-[17px] pt-3 font-DMSans md:pl-[10%] md:pr-[6.666667%] ${isCreative ? 'bg-black text-white' : 'bg-[#F0F6F6] text-black'}`}>
+      <span
+        aria-hidden="true"
+        className={`pointer-events-none absolute bottom-0 left-[6%] right-[6%] md:left-[10%] md:right-[6.666667%] border-b-2 ${isCreative ? 'border-slate-600' : 'border-[#CCCCCC]'}`}
+      />
+      <div className="translate-y-2">
         <Link to="/" smooth={true} duration={500}>
           <AnimatedNavText text="mr.samito.com" />
         </Link>
       </div>
 
       {/* menu */}
-      <ul className="hidden md:flex">
-        <li className="pl-10">
-          <Link to="projects" smooth={true} duration={500} className={interactiveLinkClassName}>
-            Projects
-          </Link>
-        </li>
+      <ul className="hidden translate-y-2 md:flex">
         <li className="pl-10">
           <Link to="resume" smooth={true} duration={500} className={interactiveLinkClassName}>
             Resume
@@ -55,7 +54,7 @@ const NavBar = () => {
       </ul>
 
       {/* Hamburger */}
-      <div onClick={handleClick} className="md:hidden z-10">
+      <div onClick={handleClick} className="z-10 translate-y-2 md:hidden">
         {!nav ? <FaBars /> : <FaTimes />}
       </div>
 
@@ -73,18 +72,11 @@ const NavBar = () => {
           </Link>
         </li>
         <li className="py-6 text-4xl">
-          <Link onClick={handleClick} to="projects" smooth={true} duration={500} className={interactiveLinkClassName}>
-            Projects
-          </Link>
-        </li>
-        <li className="py-6 text-4xl">
-          {" "}
           <Link onClick={handleClick} to="resume" smooth={true} duration={500} className={interactiveLinkClassName}>
             Resume
           </Link>
         </li>
         <li className="py-6 text-4xl">
-          {" "}
           <Link onClick={handleClick} to="contact" smooth={true} duration={500} className={interactiveLinkClassName}>
             Contact
           </Link>

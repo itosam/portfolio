@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
 import portfolio from "../data/portfolio"
 import AssetLoader from "./AssetLoader";
 import ProjectItem from "./ProjectItem"
@@ -10,11 +11,15 @@ const projectAssets = portfolio.map((project) =>
 );
 
 const CodeProject = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
   return (
     <AssetLoader assets={projectAssets}>
     <div className="CodeProject font-DMSans ml-[10%] mr-[6.666667%] pt-[120px] pb-[25px]">
       <nav className="mb-8 text-sm text-black/60" aria-label="Breadcrumb">
-        <Link to="/projects" className={highlightLinkClassName}>
+        <Link to={{ pathname: "/", hash: "#projects" }} className={highlightLinkClassName}>
           Projects
         </Link>
         <span className="mx-2">/</span>
