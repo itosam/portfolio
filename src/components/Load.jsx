@@ -16,10 +16,10 @@ const Load = () => {
         whileTap={{ scale: 1 }}
     >
       <motion.img
-        
+       
        
         src="./assets/icon.png"
-        alt="icon"
+        alt="Sam Ito logo"
       />
       <h1
         initial={{ opacity: 0, scale: 0.5 }}

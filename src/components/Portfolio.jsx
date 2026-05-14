@@ -1,13 +1,15 @@
 import portfolio from "../data/portfolio"
-import PortfolioItem from "./PortfolioItem"
+import ProjectItem from "./ProjectItem"
 
 const Portfolio = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-left  md:justify-center">
       <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-20">
         {portfolio.map((project) => (
-          <PortfolioItem
+          <ProjectItem
+            key={project.title}
             imgUrl={project.imgUrl}
+            imageAlt={project.imageAlt}
             title={project.title}
             stack={project.stack}
             link={project.link}

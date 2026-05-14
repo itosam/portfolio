@@ -1,82 +1,69 @@
-// import {
-//   Document,
-//   Page,
-//   Text,
-//   View,
-//   StyleSheet,
-//   PDFViewer,
-// } from '@react-18-pdf/renderer';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import resume from "../pdf/samitoresume.pdf";
 import Load from "./Load";
+import { buttonClassName, highlightLinkClassName } from "../sharedClasses";
 
 const Resume = () => {
 
-   const [loading, setLoading] = useState(false);
-   useEffect(() => {
-     setLoading(true);
-     setTimeout(() => {
-       setLoading(false);
-     }, 1000);
-   }, []);
+   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="flex pl-[14rem] pr-[10rem] flex-col pt-[7rem] pb-[7rem] flex justify-between items-center">
-      {
-        loading ?
-        <Load/>
-        :
-    <div className="flex pl-[14rem] pr-[10rem] flex-col pt-[7rem] pb-[7rem] flex justify-between items-center">
-      <h1 className="text-5xl pb-20">Resume</h1>
-      <div class="outer-pdf">
-        <div class="pdf">
-          <iframe
-            class="desktop-pdf"
-            scrolling="auto"
-            src={resume}
-            width="1100"
-            height="850"
-            type="application/pdf"
-            title="Title"
-          >
-            <p>
-              <em>
-                There is content being displayed here that your browser doesn't
-                support.
-              </em>{" "}
-              <a href="URL HERE" target="_blank">
-                {" "}
-                Please click here to attempt to view the information in a
-                separate browser window.{" "}
-              </a>{" "}
-              Thanks for your patience!
-            </p>
-          </iframe>
-          <iframe
-            class="mobile-pdf"
-            scrolling="auto"
-            src="https://docs.google.com/document/d/e/2PACX-1vRzo2xOYXZAZdqn5A-LXeoMyBJTOu1onDhFBbLJsyeV9Rgqa3yqBl4ZOLAjRa9ckQzy4JEdHEDaFzpa/pub?embedded=true"
-            width="480"
-            height="600"
-            type="application/pdf"
-            title="Title"
-          >
-            <p>
-              <em>
-                There is content being displayed here that your browser doesn't
-                support.
-              </em>{" "}
-              <a href="URL HERE" target="_blank">
-                {" "}
-                Please click here to attempt to view the information in a
-                separate browser window.{" "}
-              </a>{" "}
-              Thanks for your patience!
-            </p>
-          </iframe>
+    <div className="flex flex-col items-center justify-between px-[10%] pt-[120px] pb-[7rem] md:pr-[6.666667%]">
+        <div className="flex flex-col items-center w-full">
+          <h1 className="text-5xl pb-10">Resume</h1>
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            <a
+              href={resume}
+              download="samitoresume.pdf"
+              className={buttonClassName}
+            >
+              Download Resume
+            </a>
+            <a
+              href={resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonClassName}
+            >
+              Open in new tab
+            </a>
+          </div>
+          <div className="relative w-full max-w-[1100px] rounded-xl shadow-lg border border-slate-300 overflow-hidden">
+            {loading && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center bg-[#F0F6F6]">
+                <Load />
+              </div>
+            )}
+            <object
+              className={`w-full min-h-[75vh] transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}
+              data={resume}
+              type="application/pdf"
+              onLoad={() => setLoading(false)}
+            >
+              <div className="p-8 text-center">
+                <p className="mb-4">
+                  PDF preview is not available in your browser.
+                </p>
+                <a
+                  href={resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={highlightLinkClassName}
+                >
+                  Open resume in a new tab
+                </a>
+                <span className="mx-2">or</span>
+                <a
+                  href={resume}
+                  download="samitoresume.pdf"
+                  className={highlightLinkClassName}
+                >
+                  download the PDF
+                </a>
+              </div>
+            </object>
+          </div>
         </div>
-      </div>
-    </div>}
     </div>
   );
 };

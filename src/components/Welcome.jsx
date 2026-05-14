@@ -18,7 +18,7 @@ const Welcome= () => {
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 1 }}
         src="./assets/icon.png"
-        alt="icon"
+        alt="Sam Ito logo"
       />
     </div>
   );
