@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { easedScrollToElement } from "../utils/easedScrollToElement";
 
 const introText =
   "Hi, I'm Sam! I'm an eCommerce and Web Product professional with experience in NYC wholesale fashion, web content, digital operations, and full stack development. See what I've been working on.";
@@ -8,57 +9,73 @@ const AnimatedIntroText = ({ text }) => {
 
   const handleProjectsClick = () => {
     const projectsElement = document.getElementById("projects");
-    if (projectsElement) {
-      projectsElement.scrollIntoView({ behavior: "smooth" });
-    }
+    easedScrollToElement(projectsElement);
   };
+
+  const renderWordContent = (word) => (
+    <>
+      {word.split("").map((letter, letterIndex) => (
+        <motion.span
+          key={`${word}-${letter}-${letterIndex}`}
+          aria-hidden="true"
+          className="inline-block tracking-normal"
+          whileHover={{ y: -12 }}
+          transition={{ type: "spring", stiffness: 500, damping: 14 }}
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </>
+  );
+
+  const renderedWords = [];
+
+  for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
+    const word = words[wordIndex];
+    const nextWord = words[wordIndex + 1];
+    const normalizedWord = word.toLowerCase().replace(/[^a-z]/g, "");
+    const normalizedNextWord = nextWord?.toLowerCase().replace(/[^a-z]/g, "");
+
+    if (normalizedWord === "working" && normalizedNextWord === "on") {
+      renderedWords.push(
+        <motion.button
+          key={`${word}-${nextWord}-${wordIndex}`}
+          aria-label="Scroll to projects"
+          onClick={handleProjectsClick}
+          className="inline-block cursor-pointer appearance-none whitespace-nowrap rounded-[0.08em] border-0 bg-transparent px-[0.08em] text-black outline-none focus-visible:ring-2 focus-visible:ring-black/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F0F6F6]"
+          initial={{ backgroundSize: "0% 100%" }}
+          animate={{ backgroundSize: "100% 100%" }}
+          transition={{ delay: 0.9, duration: 0.75, ease: "easeOut" }}
+          style={{
+            backgroundImage: "linear-gradient(#FFE7A8, #FFE7A8)",
+            backgroundPosition: "left bottom",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <span className="inline-block whitespace-nowrap mr-[0.24em]">
+            {renderWordContent(word)}
+          </span>
+          <span className="inline-block whitespace-nowrap">
+            {renderWordContent(nextWord)}
+          </span>
+        </motion.button>
+      );
+      wordIndex += 1;
+      continue;
+    }
+
+    const wordClassName = `inline-block whitespace-nowrap ${wordIndex < words.length - 1 ? "mr-[0.24em]" : ""}`;
+
+    renderedWords.push(
+      <span key={`${word}-${wordIndex}`} className={wordClassName}>
+        {renderWordContent(word)}
+      </span>
+    );
+  }
 
   return (
     <span aria-label={text} className="tracking-normal">
-      {words.map((word, wordIndex) => {
-        const wordContent = (
-          <>
-            {word.split("").map((letter, letterIndex) => (
-              <motion.span
-                key={`${word}-${letter}-${letterIndex}`}
-                aria-hidden="true"
-                className="inline-block tracking-normal"
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 500, damping: 14 }}
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </>
-        );
-        const wordClassName = `inline-block whitespace-nowrap ${wordIndex < words.length - 1 ? "mr-[0.24em]" : ""}`;
-
-        if (word.toLowerCase().replace(/[^a-z]/g, "") === "on") {
-          return (
-            <motion.button
-              key={`${word}-${wordIndex}`}
-              onClick={handleProjectsClick}
-              className={`${wordClassName} cursor-pointer appearance-none rounded-[0.08em] border-0 bg-transparent px-[0.08em] text-black outline-none focus-visible:ring-2 focus-visible:ring-black/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#F0F6F6]`}
-              initial={{ backgroundSize: "0% 100%" }}
-              animate={{ backgroundSize: "100% 100%" }}
-              transition={{ delay: 0.9, duration: 0.75, ease: "easeOut" }}
-              style={{
-                backgroundImage: "linear-gradient(#FFE7A8, #FFE7A8)",
-                backgroundPosition: "left bottom",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              {wordContent}
-            </motion.button>
-          );
-        }
-
-        return (
-          <span key={`${word}-${wordIndex}`} className={wordClassName}>
-            {wordContent}
-          </span>
-        );
-      })}
+      {renderedWords}
     </span>
   );
 };

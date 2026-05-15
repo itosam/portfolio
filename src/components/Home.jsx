@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import Intro from "./Intro";
 import portfolio from "../data/portfolio";
 import { highlightLinkClassName } from "../sharedClasses";
+import { easedScrollToElement } from "../utils/easedScrollToElement";
 
 const homeProjects = [
   {
@@ -26,10 +27,9 @@ function Home() {
 
   useEffect(() => {
     if (location.pathname === "/" && location.hash === "#projects") {
-      const projectsElement = document.getElementById("projects");
-      if (projectsElement) {
-        projectsElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      window.requestAnimationFrame(() => {
+        easedScrollToElement(document.getElementById("projects"));
+      });
     }
   }, [location.pathname, location.hash]);
 
